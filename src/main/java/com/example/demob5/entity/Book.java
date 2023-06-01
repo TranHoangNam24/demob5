@@ -1,6 +1,7 @@
 package com.example.demob5.entity;
 
 import com.example.demob5.Validator.annotation.ValidCategoryId;
+import com.example.demob5.Validator.annotation.ValidUserId;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -27,4 +28,8 @@ public class Book {
     @JoinColumn(name ="category_id")
     @ValidCategoryId
     private Category category;
+    @ManyToOne
+    @JoinColumn(name = "user-id",referencedColumnName = "id")
+    @ValidUserId
+    private User user;
 }
